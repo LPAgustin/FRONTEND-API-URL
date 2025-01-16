@@ -1,13 +1,15 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import PaymentPage from './PaymentPage';
 
-const App = () => {
+function App() {
     return (
+      <Router> 
         <Routes>
-            <Route path="/payment/:uniqueId" element={<PaymentPage />} />
+        <Route path="/payment/:uniqueId" element={<PaymentPage />} />
         </Routes>
+      </Router>
     );
-};
-
-export default App;
+  }
+  
+  export default App;
