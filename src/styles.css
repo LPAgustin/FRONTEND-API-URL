@@ -1,0 +1,93 @@
+/* Fuente de Google */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Estilos generales */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #d3f8ff, #f4d4ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 720px; /* Aumentado un 20% */
+    margin: 20px auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #0056b3; /* Borde azul agregado */
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.details {
+    text-align: left;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 20px;
+    color: white;
+    font-weight: 500;
+    margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.details p {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Centra verticalmente */
+    gap: 50px; /* Espacio entre título y dato */
+}
+
+button {
+    margin-top: 20px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #003f8c;
+}
+
+.qr-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.qr-container img {
+    max-width: 200px;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+/* Estilos responsivos */
+@media screen and (max-width: 720px) {
+    .container {
+        max-width: 90%; /* Ajuste dinámico para pantallas pequeñas */
+    }
+}
