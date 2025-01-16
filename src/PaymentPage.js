@@ -6,24 +6,29 @@ import logo from './logo.png';
 const PaymentPage = () => {
     const { uniqueId } = useParams();
     console.log("Unique ID recibido:", uniqueId);
+
     const [paymentData, setPaymentData] = useState(null);
     const [error, setError] = useState(null);
-    const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3000'; // Variable de entorno
-    console.log(process.env.REACT_APP_API_URL);
 
+    const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3000';
+    console.log("URL de la API:", API_URL);
 
     useEffect(() => {
         const fetchPaymentData = async () => {
             try {
+                console.log("Iniciando fetch de datos de pago...");
                 const response = await fetch(`${API_URL}/api/wallet/payment-data/${uniqueId}`);
                 console.log("Respuesta de la API:", response);
+
                 if (!response.ok) {
                     throw new Error('Error al obtener los datos del pago');
                 }
+
                 const data = await response.json();
                 console.log("Datos obtenidos del pago:", data);
                 setPaymentData(data);
             } catch (err) {
+                console.error("Error en fetchPaymentData:", err.message);
                 setError(err.message);
             }
         };
