@@ -19,33 +19,36 @@ const PaymentPage = () => {
     useEffect(() => {
         const fetchPaymentData = async () => {
             try {
-                console.log("Iniciando fetch de datos de pago...");
+                console.log("📌 Iniciando fetch de datos de pago...");
                 const response = await fetch(`${API_URL}/api/wallet/payment-data/${uniqueId}`);
-                console.log("Respuesta de la API:", response);
-
+                console.log("📌 Respuesta de la API:", response);
+    
                 if (!response.ok) {
-                    throw new Error('Error al obtener los datos del pago');
+                    throw new Error('⚠️ Error al obtener los datos del pago');
                 }
-
+    
                 const data = await response.json();
-                console.log("Datos obtenidos del pago:", data);
+                console.log("✅ Datos obtenidos del pago:", data); // 🔍 Agrega este log
                 setPaymentData(data);
             } catch (err) {
-                console.error("Error en fetchPaymentData:", err.message);
+                console.error("❌ Error en fetchPaymentData:", err.message);
                 setError(err.message);
             }
         };
-
+    
         fetchPaymentData();
-    }, [uniqueId, API_URL]);
+    }, [uniqueId, API_URL]);    
 
     if (error) {
-        return <div className="error-container">Error: {error}</div>;
+        return <div className="error-container">⚠️ Error: {error}</div>;
     }
-
+    
     if (!paymentData) {
-        return <div className="loading-container">Cargando...</div>;
+        return <div className="loading-container">⏳ Cargando datos del pago...</div>;
     }
+    
+    console.log("📌 Renderizando PaymentPage con estos datos:", paymentData);
+    
 
     return (
         <div className="container">
