@@ -10,8 +10,11 @@ const PaymentPage = () => {
     const [paymentData, setPaymentData] = useState(null);
     const [error, setError] = useState(null);
 
-    const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3000';
-    console.log("URL de la API:", API_URL);
+    const API_URL = process.env.NODE_ENV === 'production'
+    ? process.env.REACT_APP_PROD_API_URL
+    : process.env.REACT_APP_API_URL;
+
+    console.log("Usando API URL:", API_URL);
 
     useEffect(() => {
         const fetchPaymentData = async () => {
